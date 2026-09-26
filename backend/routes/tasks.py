@@ -36,7 +36,7 @@ def delete_task (task_id: int , db : Session = Depends(get_db)):
     if not task:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            info = f"Task with id: {task_id} not found"
+            detail= f"Task with id: {task_id} not found"
         )
     db.delete(task)
     db.commit()
